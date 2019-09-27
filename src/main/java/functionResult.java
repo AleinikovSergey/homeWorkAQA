@@ -5,6 +5,50 @@ public class functionResult {
     String oneParam;
     String twoParam;
     String result;
+    String error;
+
+    @Override
+    public String toString() {
+        return "functionResult{" +
+                "operation='" + operation + '\'' +
+                ", oneParam='" + oneParam + '\'' +
+                ", twoParam='" + twoParam + '\'' +
+                ", result='" + result + '\'' +
+                ", error='" + error + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        functionResult that = (functionResult) o;
+        return Objects.equals(operation, that.operation) &&
+                Objects.equals(oneParam, that.oneParam) &&
+                Objects.equals(twoParam, that.twoParam) &&
+                Objects.equals(result, that.result) &&
+                Objects.equals(error, that.error);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(operation, oneParam, twoParam, result, error);
+    }
+
+    public functionResult() {
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
+
+    public functionResult(String error) {
+        this.error = error;
+    }
 
     public functionResult(String operation, String oneParam, String twoParam, String result) {
         this.operation = operation;
@@ -45,30 +89,5 @@ public class functionResult {
         this.result = result;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        functionResult that = (functionResult) o;
-        return Objects.equals(operation, that.operation) &&
-                Objects.equals(oneParam, that.oneParam) &&
-                Objects.equals(twoParam, that.twoParam) &&
-                Objects.equals(result, that.result);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(operation, oneParam, twoParam, result);
-    }
-
-    @Override
-    public String toString() {
-        return "functionResult{" +
-                "operation='" + operation + '\'' +
-                ", oneParam='" + oneParam + '\'' +
-                ", twoParam='" + twoParam + '\'' +
-                ", result='" + result + '\'' +
-                '}';
-    }
 }
 
